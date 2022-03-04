@@ -36,7 +36,7 @@ object ChangingActorBehaviour extends App {
 
   /**
    * because mutation is not good,
-   * stateless actor cna handle mutation
+   * stateless actor can handle mutation by stacking calls
    */
   object StatelessFuzzyKid
   class StatelessFuzzyKid extends Actor {
