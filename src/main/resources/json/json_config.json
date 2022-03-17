@@ -1,0 +1,6 @@
+{
+  "propertyOne": 20,
+  "akka": {
+    "loglevel": "DEBUG"
+  }
+}
