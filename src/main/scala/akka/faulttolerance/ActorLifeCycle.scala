@@ -59,7 +59,7 @@ object ActorLifeCycle extends App {
     override def postStop(): Unit = log.info(s"[child] postStopped")
 
     /**
-     * in the actor lifecycle, if an actor fails,
+     * in the actor lifecycle, if an actor fails,(an exception occurs)
      * the system will try to restart it
      * @param reason
      * @param message
