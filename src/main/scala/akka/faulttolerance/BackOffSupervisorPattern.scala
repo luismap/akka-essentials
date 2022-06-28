@@ -111,5 +111,7 @@ object BackOffSupervisorPattern extends App {
 
 
 
+  guardian.scheduler.scheduleOnce(12 seconds)(
   guardian.terminate()
+  )(guardian.dispatcher)
 }
