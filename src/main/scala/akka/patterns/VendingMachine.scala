@@ -2,12 +2,12 @@ package akka.patterns
 
 import akka.actor.{Actor, ActorLogging, ActorRef, ActorSystem, Cancellable, Props}
 import akka.patterns.AskPattern.Client
-import akka.patterns.FSM.VendingMachine.{Instruction, ReceiveMoney}
+import akka.patterns.VendingMachine.VendingMachine.{Instruction, ReceiveMoney}
 
 import scala.concurrent.duration.DurationInt
 import scala.util.Random
 
-object FSM extends App {
+object VendingMachine extends App {
 
   /**
    * FSM(finite state machines)

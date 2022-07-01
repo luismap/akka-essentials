@@ -1,21 +1,21 @@
 package akka.patterns
 
 import akka.actor.{ActorSystem, Props}
-import akka.patterns.FSM.vendingMachine
+import akka.patterns.VendingMachine.vendingMachine
 import akka.testkit.{ImplicitSender, TestKit}
 import org.scalatest.{BeforeAndAfterAll, WordSpecLike}
 
 import scala.concurrent.duration.DurationDouble
 
 
-class FSMTest extends TestKit(ActorSystem("FSM"))
+class VendingMachineTest extends TestKit(ActorSystem("FSM"))
   with ImplicitSender
   with WordSpecLike
   with BeforeAndAfterAll {
   override protected def afterAll(): Unit = TestKit.shutdownActorSystem(system)
 
-  import FSM.VendingMachine._
-  import FSM.VendingMachine
+  import VendingMachine.VendingMachine._
+  import VendingMachine.VendingMachine
 
   def vendMachineRequest(product: String) = {
     val vendM = system.actorOf(Props[VendingMachine])
