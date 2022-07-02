@@ -87,7 +87,8 @@ object VendingMachine extends App {
       case ReceiveMoney(amount) =>
         moneyTimeoutSchedule.cancel()
         val price = prices(item)
-        val totalToPay = price - (amount + money)
+        val currentBalance = amount + money
+        val totalToPay = price - currentBalance
         if (totalToPay <= 0) {
           if (totalToPay < 0) requester ! GiveBackChange(math.abs(totalToPay))
           val newQty = inventory(item) - 1
@@ -98,7 +99,7 @@ object VendingMachine extends App {
         } else {
           requester ! Instruction(s"left to pay $item = ${math.abs(totalToPay)}")
           context.become(waitingForTransaction(
-            inventory, prices, item, amount, startReceivedMoneyTimeoutScheduler, requester
+            inventory, prices, item, currentBalance, startReceivedMoneyTimeoutScheduler, requester
           ))
         }
 
